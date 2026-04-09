@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CapMinds Appointment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <h2>CAPMINDS</h2>
+  <ul>
+    <li class="active">📅 Calendar</li>
+    <li>📊 Dashboard</li>
+  </ul>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Header -->
+  <div class="header">
+    <button id="openModal">+ Book Appointment</button>
+  </div>
+
+  <!-- Calendar Header Controls -->
+<div class="calendar-header">
+
+  <div class="nav-left">
+    <button onclick="prevMonth()">◀</button>
+    <span id="monthYear">April 2026</span>
+    <button onclick="nextMonth()">▶</button>
+  </div>
+
+  <div class="nav-right">
+    <button onclick="goToday()" class="today-btn">Today</button>
+    <select>
+      <option>Month</option>
+    </select>
+  </div>
+
+</div>
+
+
+  <!-- Calendar -->
+  <div id="calendar" class="calendar"></div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <h3>Practice Dashboard</h3>
+
+    <div class="filters">
+      <input type="text" id="searchPatient" placeholder="Patient Search">
+      <input type="text" id="searchDoctor" placeholder="Doctor Search">
+      <input type="date" id="fromDate">
+      <input type="date" id="toDate">
+      <button onclick="applyFilters()">Update</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Hospital</th>
+          <th>Specialty</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentList"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Schedule Appointment</h3>
+
+    <input id="patient" placeholder="Patient Name">
+    <input id="doctor" placeholder="Doctor Name">
+    <input id="hospital" placeholder="Hospital Name">
+    <input id="specialty" placeholder="Specialty">
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <textarea id="reason" placeholder="Reason"></textarea>
+
+    <div class="modal-buttons">
+      <button onclick="closeModal()">Cancel</button>
+      <button onclick="saveAppointment()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
